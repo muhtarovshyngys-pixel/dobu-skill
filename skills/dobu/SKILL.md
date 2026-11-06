@@ -63,6 +63,8 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 - Экшны: `D_<Class>_<State>_<Variant>`, `DobuFace_*`, ассеты лица `Face_*`, позы ПЭМ `PAM_<форма>_<ракурс>_NN`.
 - В игре `Idle_` — только дыхательный луп без жестов; всё с жестами — `Emote_`.
 
+**Игра (Unity).** Игровые анимации Добу и ПЭМ — **30 fps** (сцена экшна `render.fps = 30`); ролики-эпизоды — 24 fps. Экшн из ролика, взятый в игру, перетаймить под 30 fps (Time Stretching / масштаб ключей ×1.25), а не просто сменить fps сцены.
+
 **Лицо.**
 - Ассетов поз лица 45 (в риге v12_2, с превью): 10 анимаций (annoyed, blink, cry, dizzy, girl_blink, noise, sad, sleepy, smile, wink) и позы 202–215, girl_*, `Face_curious` (= DobuFace_cry кадр 5); `Face_cry` = DobuFace_cry кадр 22. В файл эпизода ассеты копируются (append), чтобы полка внизу работала.
 - Удалены: laugh, please, question, angry, gibberish, 217, 218, 222, 232, 233; у girl-поз убраны ресницы и румянец.
