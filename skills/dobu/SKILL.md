@@ -47,7 +47,7 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 - ПЭМ: `c_hand_ik.r` всегда стоит на `c_traj` — location = 0 (Alt+G), и в позах, и в анимации; ключуем только его вращение. Положение и полёт руки — только `c_traj` (крупно, путь) и `c_pos` (поправки, перехлёст). Тогда любая поза из библиотеки ставится без скачка руки.
 
 **Файлы (актуальные, всё на Яндекс.Диске `Dobudob\`).**
-- Риг Добу (финальный) — `01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Final\Rig\Dobu_Rig_v12_5_FaceAnim.blend` (копия `04_GAME\01_Assets\Final\`): мешевое GN-лицо, коллекция `Dobu_Link`, арматура `rig` (ARP, 531 кость). Сохранён в 4.5 — при переводе на 5.2 см. правило выше. Бэкапы — `01_Assets\_backup\`.
+- Риг Добу (финальный) — `01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Rig_v12_5_FaceAnim.blend` (копия `04_GAME\01_Assets\Final\`, без ассетов — все ассеты лица только в `Dobu_Final`): мешевое GN-лицо, коллекция `Dobu_Link`, арматура `rig` (ARP, 531 кость). Сохранён в 4.5 — при переводе на 5.2 см. правило выше. Бэкапы — `01_Assets\_backup\`.
 - Риг ПЭМ — `01_ASSETS\01_CHARACTERS\PA1M\01_RIG\Pa1m_rig_v4.blend`: `Pa1m_Link`, `rig` ARP 103 кости, правая рука. Начало координат рига — у кончиков пальцев, центр кисти ≈ (4.9, −0.04, 0.59) в локальных осях.
 - **Библиотека поз ПЭМ** — `01_ASSETS\01_CHARACTERS\PA1M\01_RIG\PAM_PoseLibrary\PAM_PoseLibrary_v002.blend` (риг v4 линком, путь относительный): 112 поз из эпизодов, каталоги по ракурсу камеры (`ПЭМ/Ладонь к камере`, `Тыльная сторона`, `Пальцами в камеру`, `Со стороны запястья`, `Профиль - большой палец`, `Профиль - мизинец`, `00 Игровые (PA1M_Poses)`), экшн-банк `PAM_Poses_Bank` (все позы по кадру с маркерами), игровые `PA1M_Poses`. Папку `PAM_PoseLibrary` подключать как Asset Library (Preferences → File Paths). Подробно — `04_body_actions.md`.
 - Хаб — `01_ASSETS\02_ENVIRONMENTS\01_ReadyAsset\DobuHub_v05.blend`.
@@ -58,7 +58,7 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 | Что | Папка для Asset Library | Файл |
 |---|---|---|
 | Руки ПЭМ (112 поз по ракурсам) | `Yandex.Disk\Dobudob\01_ASSETS\01_CHARACTERS\PA1M\01_RIG\PAM_PoseLibrary\` | `PAM_PoseLibrary_v002.blend` |
-| Лицо Добу (45 ассетов `Face_*`, каталог `Добу/Лицо`) | `Yandex.Disk\Dobudob\01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Final\FacePoses\` | `Dobu_FacePoses_v12_5.blend` (риг линком из `../Rig/`) |
+| Лицо Добу (45 ассетов `Face_*`) | `Yandex.Disk\Dobudob\01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Final\` | `Dobu_FacePoses_v12_5.blend` — единственный файл в папке; риг линком из `..\Dobu_Rig_v12_5_FaceAnim.blend` |
 
 **Передача файла эпизода (свет, шейдинг).**
 - Всё, что относится к анимации, — в одной коллекции `animation` в корне сцены: персонажи (`Dobu_Link`, `Pa1m_Link`), камера, анимированные пропсы и всё, что привязано к персонажу, служебные контролы и пустышки (`<Ep>_Controls`). Свет туда не класть — он у художника по свету. Тогда свет/шейдинг просто линкует одну коллекцию.
