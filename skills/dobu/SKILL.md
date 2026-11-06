@@ -54,6 +54,12 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 - Экшны тела — `04_GAME\02_Production\Dobu\Dobu_Base\Dobu_Base_anims.blend`: Hang, Hang_Start, Hang_Struggle, Hang_Land, Land_High, Fall_Loop, Idle_*, Talk_*, Walk_*, Run. Брать через append (`bpy.data.libraries.load`).
 - Финальные ролики — `03_OUTPUT`.
 
+**Библиотеки поз (Asset Libraries).** Позы уже есть — новые не собирать, ставить из этих библиотек. Подключение: Preferences → File Paths → Asset Libraries → + → выбрать ПАПКУ (путь можно вставить в строку и нажать Enter; одинарный клик в этом окне только выделяет).
+| Что | Папка для Asset Library | Файл |
+|---|---|---|
+| Руки ПЭМ (112 поз по ракурсам) | `Yandex.Disk\Dobudob\01_ASSETS\01_CHARACTERS\PA1M\01_RIG\PAM_PoseLibrary\` | `PAM_PoseLibrary_v002.blend` |
+| Лицо Добу (45 ассетов `Face_*`) | `Yandex.Disk\Dobudob\04_GAME\01_Assets\` | `Dobu_Rig_v12_2_FaceAnim.blend` |
+
 **Передача файла эпизода (свет, шейдинг).**
 - Всё, что относится к анимации, — в одной коллекции `animation` в корне сцены: персонажи (`Dobu_Link`, `Pa1m_Link`), камера, анимированные пропсы и всё, что привязано к персонажу, служебные контролы и пустышки (`<Ep>_Controls`). Свет туда не класть — он у художника по свету. Тогда свет/шейдинг просто линкует одну коллекцию.
 - Озвучка — рядом с файлом в `02_ProjectFiles\audio\`, звуки в секвенсоре по относительным путям `//audio/...`.
