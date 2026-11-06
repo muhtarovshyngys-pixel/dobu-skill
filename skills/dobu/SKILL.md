@@ -47,7 +47,7 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 - ПЭМ: `c_hand_ik.r` всегда стоит на `c_traj` — location = 0 (Alt+G), и в позах, и в анимации; ключуем только его вращение. Положение и полёт руки — только `c_traj` (крупно, путь) и `c_pos` (поправки, перехлёст). Тогда любая поза из библиотеки ставится без скачка руки.
 
 **Файлы (актуальные, всё на Яндекс.Диске `Dobudob\`).**
-- Риг Добу — `04_GAME\01_Assets\Dobu_Rig_v12_2_FaceAnim.blend`: мешевое GN-лицо, коллекция `Dobu_Link`, арматура `rig` (ARP, 531 кость). Сохранён в 4.5 — при переводе на 5.2 см. правило выше. Бэкапы — `01_Assets\_backup\`.
+- Риг Добу (финальный) — `01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Final\Rig\Dobu_Rig_v12_5_FaceAnim.blend` (копия `04_GAME\01_Assets\Final\`): мешевое GN-лицо, коллекция `Dobu_Link`, арматура `rig` (ARP, 531 кость). Сохранён в 4.5 — при переводе на 5.2 см. правило выше. Бэкапы — `01_Assets\_backup\`.
 - Риг ПЭМ — `01_ASSETS\01_CHARACTERS\PA1M\01_RIG\Pa1m_rig_v4.blend`: `Pa1m_Link`, `rig` ARP 103 кости, правая рука. Начало координат рига — у кончиков пальцев, центр кисти ≈ (4.9, −0.04, 0.59) в локальных осях.
 - **Библиотека поз ПЭМ** — `01_ASSETS\01_CHARACTERS\PA1M\01_RIG\PAM_PoseLibrary\PAM_PoseLibrary_v002.blend` (риг v4 линком, путь относительный): 112 поз из эпизодов, каталоги по ракурсу камеры (`ПЭМ/Ладонь к камере`, `Тыльная сторона`, `Пальцами в камеру`, `Со стороны запястья`, `Профиль - большой палец`, `Профиль - мизинец`, `00 Игровые (PA1M_Poses)`), экшн-банк `PAM_Poses_Bank` (все позы по кадру с маркерами), игровые `PA1M_Poses`. Папку `PAM_PoseLibrary` подключать как Asset Library (Preferences → File Paths). Подробно — `04_body_actions.md`.
 - Хаб — `01_ASSETS\02_ENVIRONMENTS\01_ReadyAsset\DobuHub_v05.blend`.
@@ -58,7 +58,7 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 | Что | Папка для Asset Library | Файл |
 |---|---|---|
 | Руки ПЭМ (112 поз по ракурсам) | `Yandex.Disk\Dobudob\01_ASSETS\01_CHARACTERS\PA1M\01_RIG\PAM_PoseLibrary\` | `PAM_PoseLibrary_v002.blend` |
-| Лицо Добу (45 ассетов `Face_*`) | `Yandex.Disk\Dobudob\04_GAME\01_Assets\` | `Dobu_Rig_v12_2_FaceAnim.blend` |
+| Лицо Добу (45 ассетов `Face_*`, каталог `Добу/Лицо`) | `Yandex.Disk\Dobudob\01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Final\FacePoses\` | `Dobu_FacePoses_v12_5.blend` (риг линком из `../Rig/`) |
 
 **Передача файла эпизода (свет, шейдинг).**
 - Всё, что относится к анимации, — в одной коллекции `animation` в корне сцены: персонажи (`Dobu_Link`, `Pa1m_Link`), камера, анимированные пропсы и всё, что привязано к персонажу, служебные контролы и пустышки (`<Ep>_Controls`). Свет туда не класть — он у художника по свету. Тогда свет/шейдинг просто линкует одну коллекцию.
@@ -73,7 +73,7 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 **Игра (Unity).** Игровые анимации Добу и ПЭМ — **30 fps** (сцена экшна `render.fps = 30`); ролики-эпизоды — 24 fps. Экшн из ролика, взятый в игру, перетаймить под 30 fps (Time Stretching / масштаб ключей ×1.25), а не просто сменить fps сцены.
 
 **Лицо.**
-- Ассетов поз лица 45 (в риге v12_2, с превью): 10 анимаций (annoyed, blink, cry, dizzy, girl_blink, noise, sad, sleepy, smile, wink) и позы 202–215, girl_*, `Face_curious` (= DobuFace_cry кадр 5); `Face_cry` = DobuFace_cry кадр 22. В файл эпизода ассеты копируются (append), чтобы полка внизу работала.
+- Ассетов поз лица 45 (в риге v12_5 и в библиотеке `Dobu_FacePoses_v12_5`, с превью): 10 анимаций (annoyed, blink, cry, dizzy, girl_blink, noise, sad, sleepy, smile, wink) и позы 202–215, girl_*, `Face_curious` (= DobuFace_cry кадр 5); `Face_cry` = DobuFace_cry кадр 22. В файл эпизода ассеты копируются (append), чтобы полка внизу работала.
 - Удалены: laugh, please, question, angry, gibberish, 217, 218, 222, 232, 233; у girl-поз убраны ресницы и румянец.
 - Зеркалить лицо только аддоном `dobu_face_mirror` (кнопка «Зеркалить лицо» в N > Item при активной кости `cc_fc_root.x`). Встроенный Paste X-Flipped ломает бровь-нос и рот: несимметричный покой и данные точек `FC9_Points` (a0, r0, w0); `Side` мастеров глаз — слот глаза, его не копировать.
 
@@ -100,7 +100,7 @@ description: "Проект Добу (Dobu, Dobudob, ПЭМ/PA1M): эпизоды
 - Чёрный экран/«выключение камеры» — ключи `view_settings.exposure` (−14, CONSTANT) на сцене.
 
 **Известные риски.**
-- `Dobu_Rig_v12_1_FaceAnim.blend` падал в Blender 5.1 (VertexAlpha) — используй v12_2.
+- `Dobu_Rig_v12_1_FaceAnim.blend` падал в Blender 5.1 (VertexAlpha) — используй финальный v12_5.
 - `wm.revert_mainfile` в DobuHub-эпизодах кидает RuntimeError из-за предупреждений библиотеки хаба, хотя файл загружается, — оборачивать в try.
 - `keyframe_points.insert(options={'REPLACE'})` не создаёт новых ключей — использовать {'FAST'}.
 - Аддон Animatica Marionette в тяжёлых эпизодах (E41) сильно вешал Blender — не включать.
