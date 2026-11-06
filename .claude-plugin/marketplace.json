@@ -1,0 +1,12 @@
+{
+  "name": "waken-dobu",
+  "description": "Скилл проекта Добу",
+  "owner": { "name": "Waken Sky (Shyngys)" },
+  "plugins": [
+    {
+      "name": "dobu",
+      "source": "./",
+      "description": "База знаний проекта Добу для работы в Blender"
+    }
+  ]
+}
