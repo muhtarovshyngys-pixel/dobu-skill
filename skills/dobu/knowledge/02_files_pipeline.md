@@ -14,7 +14,7 @@
 | `01_ASSETS\04_AUDIO_LIBRARY` | звуки и музыка | |
 | `02_PRODUCTION` | проекты эпизодов, рефы, рендеры, композ | открывать можно; важные данные менять только после бэкапа |
 | `03_OUTPUT` | только финальные видео со звуком и композом | см. 05_visual_style.md |
-| `01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Rig_v12_5_FaceAnim.blend` + `Dobu_Final\` | **финальный риг Добу** (мешевое GN-лицо, без ассетов; копия `04_GAME\01_Assets\Final\`) и в `Dobu_Final\` единственный файл-библиотека лица `Dobu_FacePoses_v12_5.blend` (45 `Face_*`) | брать для эпизодов вместо текстурного лица |
+| `01_ASSETS\01_CHARACTERS\DOBU\01_RIG\Dobu_Rig_v12_5_FaceAnim.blend` + `Dobu_FacePoses\` | **финальный риг Добу** (мешевое GN-лицо, без ассетов; копия `04_GAME\01_Assets\Final\`) и в `Dobu_FacePoses\` единственный файл-библиотека лица `Dobu_FacePoses_v12_5.blend` (45 `Face_*`) | брать для эпизодов вместо текстурного лица |
 | `04_GAME\02_Production\Dobu\Dobu_<Class>\` | файлы экшнов тела: `Dobu_Base_anims.blend`, `Dobu_artist_anim.blend`, `Dobu_Scientist_anim(1).blend`, `Dobu_BD_anims_F.blend`, `Dobu_BL_Work_Hammer.blend`, `Dobu_Farmer_anims.blend` + `viewport_render` (mp4/gif) | экшны можно брать для поз и эмоций: удобнее **append через `bpy.data.libraries.load`** |
 
 Рабочие файлы — только на Яндекс.Диске: эпизоды в `02_PRODUCTION\<Ep>\02_ProjectFiles\` (озвучка — в `audio\` рядом). Папка «Загрузки» у каждого своя, пути на неё в файлы не вшивать.
